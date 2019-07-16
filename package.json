@@ -1,5 +1,5 @@
 {
-  "name": "repo-search-over-github",
+  "name": "Github-repo-search",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
