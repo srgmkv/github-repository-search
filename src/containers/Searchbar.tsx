@@ -12,13 +12,14 @@ const SearchBar = ({ changeInput, fetchRepos }: Props) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value }: { value: string } = e.target;
+    changeInput(value);
     fetchRepos(value);
   }
 
 
   return (
     <>
-      <input type="text" id="text-input"
+      <input type="text" id="text-input" 
         onChange={handleChange} />
       <button>Search</button>
     </>

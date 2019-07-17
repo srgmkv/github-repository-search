@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from './Header/Header';
 import SearchBar from '../containers/Searchbar';
-import MainSection from '../containers/MainSection';
+import MainSection from './MainSection';
 
 
 

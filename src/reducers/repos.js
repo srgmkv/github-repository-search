@@ -1,17 +1,33 @@
-const repos = (state = {}, action) => {
+const repos = (state = {items: []}, action) => {
   switch (action.type) {
-    case 'FETCH_REPOS':
 
-
+    case 'DATA_REQUESTED':
       return {
         ...state,
-        repos: action.payload
+        loading: true,
+        error: false
+      }
+
+    case 'DATA_LOADED':
+      return {
+        ...state,
+        items: action.payload,
+        loading: false,
+        error: false
+      }
+
+    case 'API_ERRORED':
+      return {
+        ...state,
+        loading: false,
+        error: true,
+
       }
 
     case 'CHANGE_INPUT':
       return {
         ...state,
-        inputState: action.payload
+        inputValue: action.payload
       }
 
     default:
