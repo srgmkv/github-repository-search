@@ -1,13 +1,12 @@
 import React from 'react';
+import ItemModel from '../model'
 
-
-
-const Card = ({ item }: any) => {
+const Card = ({ url, name, stars, watchers }: ItemModel) => {
   return (
-    <div className='card'>
-      <a href={item.html_url}>{item.full_name}</a>
-      <div className='stars'>{item.stargazers_count}</div>
-      <div className='watchers'>{item.watchers}</div>
+    <div className='card' >
+      <a href={url}>{name}</a>
+      <div className='stars'>{stars}</div>
+      <div className='watchers'>{watchers}</div>
     </div>
   );
 }

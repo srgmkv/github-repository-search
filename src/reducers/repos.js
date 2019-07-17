@@ -1,4 +1,4 @@
-const repos = (state = {items: []}, action) => {
+const repos = (state = { items: [] }, action) => {
   switch (action.type) {
 
     case 'DATA_REQUESTED':
@@ -9,9 +9,16 @@ const repos = (state = {items: []}, action) => {
       }
 
     case 'DATA_LOADED':
+      const mappedItems = action.payload.map(item => ({
+        id: item.id,
+        url: item.html_url,
+        name: item.full_name,
+        stars: item.stargazers_count,
+        watchers: item.watchers_count
+      }))
       return {
         ...state,
-        items: action.payload,
+        items: mappedItems,
         loading: false,
         error: false
       }
