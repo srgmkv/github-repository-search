@@ -13,10 +13,8 @@ function* workerSaga(action) {
   } catch (error) {
     yield put({ type: "API_ERRORED", payload: error });
   }
-
 }
 
-function fetchRepos(request) {
-  return axios.get(`https://api.github.com/search/repositories?q=${request}`)
-  
+function fetchRepos(str) {
+  return axios.get(`https://api.github.com/search/repositories?q=${str}`)
 }

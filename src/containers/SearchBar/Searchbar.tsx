@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { debounce } from 'ts-debounce';
+import './SearchBar.css';
+ 
 
-import { changeInput, fetchRepos } from '../actions/index';
+import { changeInput, fetchRepos } from '../../actions/index';
 
 interface Props {
   changeInput: typeof changeInput;
@@ -10,19 +13,20 @@ interface Props {
 
 const SearchBar = ({ changeInput, fetchRepos }: Props) => {
 
+  const debouncedFetchRepos = debounce(fetchRepos, 500);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value }: { value: string } = e.target;
     changeInput(value);
-    fetchRepos(value);
+    value.length > 2 && debouncedFetchRepos(value);
   }
 
 
   return (
-    <>
+    <div className='input'>
       <input type="text" id="text-input" 
         onChange={handleChange} />
-      <button>Search</button>
-    </>
+    </div>
   );
 }
 

@@ -1,11 +1,19 @@
-const repos = (state = { items: [] }, action) => {
+const initState = {
+  items: [],
+  loading: false,
+  error: false,
+  errorMessage: '',
+  inputValue: '',
+  emptyDataRecieved: false
+}
+
+const repos = (state = initState, action) => {
   switch (action.type) {
 
     case 'DATA_REQUESTED':
       return {
         ...state,
-        loading: true,
-        error: false
+        loading: true
       }
 
     case 'DATA_LOADED':
@@ -16,22 +24,32 @@ const repos = (state = { items: [] }, action) => {
         stars: item.stargazers_count,
         watchers: item.watchers_count
       }))
+
+      if (!mappedItems.length) {
+        return {
+          ...initState,
+          inputValue: state.inputValue,
+          emptyDataRecieved: true
+        }
+      }
+
       return {
-        ...state,
+        ...initState,
         items: mappedItems,
-        loading: false,
-        error: false
+        inputValue: state.inputValue
       }
 
     case 'API_ERRORED':
       return {
-        ...state,
-        loading: false,
+        ...initState,
         error: true,
+        errorMessage: action.payload,
+        inputValue: state.inputValue
 
       }
 
     case 'CHANGE_INPUT':
+      if (action.payload.length < 3) return initState;
       return {
         ...state,
         inputValue: action.payload
