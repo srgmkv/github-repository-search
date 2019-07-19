@@ -1,10 +1,4 @@
-import { combineReducers } from 'redux'
-import data from './repos';
-import inputChange from './inputChange';
+//import { combineReducers } from 'redux'
+import mainReducer from './mainReducer';
 
-export default data;
-
-/*export default combineReducers({
-  data,
-  inputChange
-})*/
+export default mainReducer;

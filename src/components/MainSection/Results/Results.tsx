@@ -10,7 +10,6 @@ const Message: React.FC = () => (
   </div>
 )
 
-
 interface StateProps {
   items: ItemModel[]
   emptyDataRecieved: boolean

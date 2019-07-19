@@ -7,7 +7,7 @@ const initState = {
   emptyDataRecieved: false
 }
 
-const repos = (state = initState, action) => {
+const mainReducer = (state = initState, action) => {
   switch (action.type) {
 
     case 'DATA_REQUESTED':
@@ -52,7 +52,9 @@ const repos = (state = initState, action) => {
       if (action.payload.length < 3) return initState;
       return {
         ...state,
-        inputValue: action.payload
+        inputValue: action.payload,
+        error: false
+
       }
 
     default:
@@ -60,4 +62,4 @@ const repos = (state = initState, action) => {
   }
 }
 
-export default repos
+export default mainReducer;

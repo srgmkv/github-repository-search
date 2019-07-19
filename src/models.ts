@@ -11,6 +11,6 @@ export interface IState {
   inputValue: string
   loading: boolean
   error: boolean
-  errorMessage: any
+  errorMessage: Readonly<{}>
   emptyDataRecieved: boolean
 }
