@@ -8,9 +8,10 @@ import './Cards.css'
 interface StateProps {
   items: ItemModel[]
   emptyDataRecieved: boolean
+  error: boolean
 }
 
-const Results = ({ items, emptyDataRecieved }: StateProps) => {
+const Results = ({ error, items, emptyDataRecieved }: StateProps) => {
   console.log('items from Results.tsx', items)
 
   const cards =
@@ -21,13 +22,15 @@ const Results = ({ items, emptyDataRecieved }: StateProps) => {
   return (
     <>
       {!emptyDataRecieved ? cards : <BgHandler spec='no-result' />}
+      {error && <BgHandler spec='error' />}
     </>
   );
 }
 
 const mapStateToProps = (state: IState): StateProps => ({
   items: state.items,
-  emptyDataRecieved: state.emptyDataRecieved
+  emptyDataRecieved: state.emptyDataRecieved,
+  error: state.error
 });
 
 export default connect(mapStateToProps)(Results);
