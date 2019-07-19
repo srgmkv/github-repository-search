@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Header from './Header/Header';
-import SearchBar from '../containers/SearchBar/Searchbar';
+import SearchBar from '../containers/SearchBar/SearchBar';
 import MainSection from './MainSection/MainSection';
 
 
