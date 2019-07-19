@@ -37,7 +37,7 @@
 }
 
 .stars:before {
-  content: url(../Image/star.svg);
+  content: url('../../../Images/star.svg');
   margin: 0 5px;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .watchers:before {
-  content: url(../Image/watcher.svg);
+  content: url('../../../Images/watcher.svg');
   margin: 0 5px;
 }
 span {

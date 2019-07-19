@@ -13,12 +13,12 @@
 }
 
 #image {
-  background-image: url(./Image/github.svg);
+  background-image: url('../../Images/github.svg');
  
 }
 
 #loader {
-  background-image: url(./Image/loader5.svg);
+  background-image: url('../../Images/loader5.svg');
   height: 50%;
 }
 
