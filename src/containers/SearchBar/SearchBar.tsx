@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { debounce } from 'ts-debounce';
-import { IState } from '../../models';
 import './SearchBar.css';
 import { changeInput, fetchRepos } from '../../actions/index';
 
