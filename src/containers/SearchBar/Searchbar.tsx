@@ -31,6 +31,7 @@ const SearchBar = ({ inputValue, changeInput, fetchRepos }: Props) => {
     <div className='input'>
       <input type="text" id="text-input"
         onChange={handleChange}
+        value={inputValue}
       />
     </div>
   );

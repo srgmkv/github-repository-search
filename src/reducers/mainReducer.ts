@@ -39,8 +39,10 @@ const mainReducer = (state: IState = initState, action: AppActions): IState => {
       }
 
     case 'CHANGE_INPUT':
-      return (action.inputValue.length < 3) ? initState :
-        {
+      return (action.inputValue.length < 3) ? {
+        ...initState,
+        inputValue: action.inputValue
+      } : {
           ...state,
           inputValue: action.inputValue,
           error: false,
