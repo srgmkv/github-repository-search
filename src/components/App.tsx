@@ -6,12 +6,12 @@ import MainSection from './MainSection/MainSection';
 
 
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <>
-    <Header />
-    <SearchBar />
-    <MainSection />
+      <Header />
+      <SearchBar />
+      <MainSection />
     </>
   );
 }

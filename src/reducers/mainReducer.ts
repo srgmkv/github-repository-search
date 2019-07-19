@@ -1,7 +1,7 @@
 import { IState } from '../models';
 import { AppActions } from '../actions';
 
-const initState = {
+const initState: IState = {
   items: [],
   loading: false,
   error: false,
@@ -43,7 +43,9 @@ const mainReducer = (state: IState = initState, action: AppActions): IState => {
         {
           ...state,
           inputValue: action.inputValue,
-          error: false
+          error: false,
+          loading: true
+
         }
 
     default:

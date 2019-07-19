@@ -6,7 +6,7 @@ export default function* watcherSaga() {
 }
 function* workerSaga(action) {
   try {
-    const response = yield call(fetchRepos, action.valueForUrl);
+    const response = yield call(fetchRepos, action);
     const mappedItems = fetchedDataReducer(response);
     yield put({ type: 'DATA_LOADED', data: mappedItems });
   } catch (error) {
@@ -17,19 +17,23 @@ function* workerSaga(action) {
   }
 }
 
-function fetchRepos(str) {
-  const fetchRepos = axios.get(`https://api.github.com/search/repositories?q=${str}`)
+function fetchRepos(action) {
+  const query = action.valueForUrl
+  const fetchRepos = axios.get(`https://api.github.com/search/repositories?q=${query}`)
   console.log('fetchRepos', fetchRepos)
 
   return fetchRepos
 }
 
 function fetchedDataReducer(response) {
-  return response.data.items.map(item => ({
+  return response.data.items
+  .map((item) => ({
     id: item.id,
     url: item.html_url,
     name: item.full_name,
     stars: item.stargazers_count,
     watchers: item.watchers_count
   }))
+  .sort((a, b) => b.stars - a.stars )
+  .slice(0,10)
 }

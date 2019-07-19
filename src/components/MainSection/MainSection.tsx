@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Results from './Results/Results';
-//import Image from './Image/Image';
+import BgImage from '../../containers/BGhandler';
 import './Main.css'
-//import Loader from './Image/Loader/Loader';
-import Error from './Error/Error'
 import { IState } from '../../models';
 
 
@@ -21,13 +19,13 @@ const mapStateToProps = (state: IState): StateProps => ({
 
 });
 
-const MainSection: React.FC<StateProps> = ({ loading, inputValue, error }: StateProps) => {
+const MainSection: React.FC<StateProps> = ({ loading, inputValue, error }) => {
 
 
   return (
     <div className="main-section">
-      {inputValue.length < 3 &&  <div id="image" />}
-      {error && <Error />}
+      {inputValue.length < 3 && <BgImage />}
+      {error && <BgImage spec='error' />}
       {loading ? <div id="loader" /> : <Results />}
 
     </div>
