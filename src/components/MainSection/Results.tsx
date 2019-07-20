@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import Card from '../../Views/Card/CardComp';
+import Card from '../Card/CardComp';
 import { ItemModel, IState } from '../../interfaces';
 import BgHandler from './BGroundHandler'
 
@@ -10,19 +10,19 @@ interface StateProps {
   error: boolean
 }
 
+//Компонент для отображения результата запроса
 const Results = ({ error, items, emptyDataRecieved }: StateProps) => {
-  console.log('items from Results.tsx', items)
-
-  const cards =
+  //если список репозиториев получен, то генерируем JSX c карточками репозиториев
+  const cards = 
     items.length > 0 &&
     <div id="cards-container">
       {items.map((item: ItemModel) => <Card key={item.id} card={item} />)}
     </div>
 
   return (
-    <>
-      {!emptyDataRecieved ? cards : <BgHandler spec='no-result' />}
-      {error && <BgHandler spec='error' />}
+    <> 
+      {!emptyDataRecieved ? cards : <BgHandler spec='no-result' />} {/*если данные получены, но пусты => дефолный фон и no-res сообщение */}
+      {error && <BgHandler spec='error' />} {/*если ошибка, => дефолный фон и err сообщение */}
     </>
   );
 }

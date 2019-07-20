@@ -6,6 +6,7 @@ interface ItemProps {
   card: ItemModel;
 }
 
+//Компонент отрисовывает карточку репозитория
 const Card = ({ card: { url, name, stars, watchers } }: ItemProps) => {
   return (
     <div className='card' >

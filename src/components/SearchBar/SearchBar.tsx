@@ -9,14 +9,16 @@ interface Props {
   fetchRepos: typeof fetchRepos
 }
 
+//Компонент для обработки действий с инпутом
 const SearchBar = ({ changeInput, fetchRepos }: Props) => {
 
+  //ограничиваем число запросов к серверу
   const debouncedFetchRepos = debounce(fetchRepos, 1000);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value }: { value: string } = e.target;
-    changeInput(value);
-    value.length > 2 && debouncedFetchRepos(value);
+    changeInput(value); // передаем значение в редьюсер и далее в стейт
+    value.length > 2 && debouncedFetchRepos(value); //начинаем поиск после > 2 символов в запросе
   }
 
   return (

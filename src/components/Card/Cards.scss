@@ -1,7 +1,3 @@
-$star-file-name: "star.svg";
-$watchers-file-name: "watcher.svg";
-$common-path: "../../Images/";
-
 #cards-container {
   display: flex;
   flex-flow: wrap;
@@ -59,11 +55,11 @@ $common-path: "../../Images/";
     }
 
     .stars:before {
-      content: url($common-path+$star-file-name);
+      content: url(../../Images/star.svg);
     }
 
     .watchers:before {
-      content: url($common-path+$watchers-file-name);
+      content: url(../../Images/watcher.svg);
     }
 
     span {
