@@ -47,8 +47,6 @@ const mainReducer = (state: IState = initState, action: AppActions): IState => {
           inputValue: action.inputValue,
           error: false,
           loading: true
-          
-
         }
 
     default:
