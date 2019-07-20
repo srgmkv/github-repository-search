@@ -4,14 +4,6 @@ type Props = {
   spec?: string
 }
 
-const errorMessage: string =
-  `Error occured.  
-Check for incorrect symbols or try later`
-
-const noResMessage: string =
-  `There is no result on this request.
-Try it to change.`
-
 const background = (element?: ReactNode) => {
   return <div id="image">{element}</div>
 }
@@ -22,14 +14,22 @@ const message = (str: string) => {
 const BGimage = (props: Props) => {
   switch (props.spec) {
     case ('error'):
-      return background(message(errorMessage))
+      return background(message(errorMessage));
 
     case ('no-result'):
-      return background(message(noResMessage))
+      return background(message(noResMessage));
 
     default:
-      return background()
+      return background();
   }
 }
 
 export default BGimage;
+
+const errorMessage: string =
+  `Error occured.  
+Check for incorrect symbols or try later`
+
+const noResMessage: string =
+  `There is no result on this request.
+Try it to change.`

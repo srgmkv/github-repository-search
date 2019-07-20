@@ -1,5 +1,5 @@
 import { Action } from 'redux';
-import { ItemModel } from '../models';
+import { ItemModel } from '../interfaces';
 
 export const ACTION_CHANGE_INPUT = 'CHANGE_INPUT';
 export const ACTION_DATA_REQUESTED = 'DATA_REQUESTED';

@@ -19,21 +19,18 @@ function* workerSaga(action) {
 
 function fetchRepos(action) {
   const query = action.valueForUrl
-  const fetchRepos = axios.get(`https://api.github.com/search/repositories?q=${query}`)
-  console.log('fetchRepos', fetchRepos)
-
-  return fetchRepos
-}
+  return axios.get(`https://api.github.com/search/repositories?q=${query}`)
+ }
 
 function fetchedDataReducer(response) {
   return response.data.items
-  .map((item) => ({
-    id: item.id,
-    url: item.html_url,
-    name: item.full_name,
-    stars: item.stargazers_count,
-    watchers: item.watchers_count
-  }))
-  .sort((a, b) => b.stars - a.stars )
-  .slice(0,10)
+    .map((item) => ({
+      id: item.id,
+      url: item.html_url,
+      name: item.full_name,
+      stars: item.stargazers_count,
+      watchers: item.watchers_count
+    }))
+    .sort((a, b) => b.stars - a.stars)
+    .slice(0, 10)
 }

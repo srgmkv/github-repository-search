@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { debounce } from 'ts-debounce';
-import './SearchBar.css';
+import './SearchBar.scss';
 import { changeInput, fetchRepos } from '../../actions/index';
 
 interface Props {

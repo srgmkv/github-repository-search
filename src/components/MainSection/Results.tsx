@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import Card from './CardComp';
-import { ItemModel, IState } from '../../../models';
-import BgHandler from '../../../containers/BGroundHandler'
-import './Cards.css'
+import Card from '../../Views/Card/CardComp';
+import { ItemModel, IState } from '../../interfaces';
+import BgHandler from './BGroundHandler'
 
 interface StateProps {
   items: ItemModel[]

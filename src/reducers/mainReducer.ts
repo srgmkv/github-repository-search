@@ -1,4 +1,4 @@
-import { IState } from '../models';
+import { IState } from '../interfaces';
 import { AppActions } from '../actions';
 
 const initState: IState = {

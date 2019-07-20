@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Results from './Results/Results';
-import BgHandler from '../../containers/BGroundHandler';
+import Results from './Results';
+import BgHandler from './BGroundHandler';
 import './Main.scss'
-import { IState } from '../../models';
+import { IState } from '../../interfaces';
 
 interface StateProps {
   loading: boolean
@@ -15,7 +15,7 @@ const mapStateToProps = (state: IState): StateProps => ({
   inputValue: state.inputValue
 });
 
-const MainSection: React.FC<StateProps> = ({ loading, inputValue }) => {
+const MainSection = ({ loading, inputValue }: StateProps) => {
 
 
   return (
