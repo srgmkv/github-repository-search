@@ -1,14 +1,18 @@
 import React from 'react';
-import './Header.css'
+import './Header.scss'
+import Image from '../../Images/github2.svg'
+
 
 const Header = () => {
   return (
-    <>
-      <div className="header">
-        <a href="https://github.com/srgmkv" title="github.com/srgmkv"><div className="srgmkv"></div></a>
-        <div className="header-name">{`{</>}`} Github repo finder</div>
-      </div>
-    </>
+    <div className="header">
+      <a href="https://github.com/srgmkv" title="github.com/srgmkv">
+        <img src={Image}/>
+        {/* <div className="srgmkv"></div> */}
+        </a>
+      <div className="title">{`{</>}`} Github repo finder</div>
+    </div>
+
   );
 }
 

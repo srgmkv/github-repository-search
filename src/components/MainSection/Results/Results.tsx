@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import Card from './CardComp';
 import { ItemModel, IState } from '../../../models';
-import BgHandler from '../../../containers/BGhandler'
+import BgHandler from '../../../containers/BGroundHandler'
 import './Cards.css'
 
 interface StateProps {
@@ -15,6 +15,7 @@ const Results = ({ error, items, emptyDataRecieved }: StateProps) => {
   console.log('items from Results.tsx', items)
 
   const cards =
+    items.length > 0 &&
     <div id="cards-container">
       {items.map((item: ItemModel) => <Card key={item.id} card={item} />)}
     </div>

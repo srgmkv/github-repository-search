@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Results from './Results/Results';
-import BgHandler from '../../containers/BGhandler';
-import './Main.css'
+import BgHandler from '../../containers/BGroundHandler';
+import './Main.scss'
 import { IState } from '../../models';
 
 interface StateProps {

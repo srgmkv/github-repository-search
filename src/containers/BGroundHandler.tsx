@@ -12,7 +12,6 @@ const noResMessage: string =
   `There is no result on this request.
 Try it to change.`
 
-
 const background = (element?: ReactNode) => {
   return <div id="image">{element}</div>
 }
