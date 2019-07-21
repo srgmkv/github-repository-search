@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div className="header">
       <a href="https://github.com/srgmkv" title="github.com/srgmkv">
-        <img src={Image} />
+        <img src={Image} alt=""/>
       </a>
       <div className="title">{`{</>}`} Github repo finder</div>
     </div>

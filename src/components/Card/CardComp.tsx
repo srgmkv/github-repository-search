@@ -16,12 +16,12 @@ const Card = ({ card: { url, name, stars, watchers } }: ItemProps) => {
 
       <div className='stars-watchers-cont'>
         <div className='stars'>
-          <img src={starIco} />
+          <img src={starIco} alt=""/>
           {stars} <span>stars</span>
         </div>
 
         <div className='watchers'>
-          <img src={watchersIco} />
+          <img src={watchersIco} alt=""/>
           {watchers} <span>watchers</span>
 
         </div>
