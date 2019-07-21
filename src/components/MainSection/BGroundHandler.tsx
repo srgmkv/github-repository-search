@@ -8,13 +8,13 @@ type specType = {
 const BackgroundImageHandler = ({ spec }: specType) => {
   switch (spec) {
     case ('error'):
-      return background(message(errorMessage));//див с фоном, внутри див с error сообщением
+      return background(message(errorMessage)) //див с фоном, внутри див с error сообщением
 
     case ('no-result'):
-      return background(message(noResMessage));//див с фоном, внутри див с no-res сообщением
+      return background(message(noResMessage)) //див с фоном, внутри див с no-res сообщением
 
     default: // здесь дефолт див с фоном
-      return background();
+      return background()
   }
 }
 

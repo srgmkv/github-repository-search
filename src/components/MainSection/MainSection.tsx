@@ -1,9 +1,9 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Results from './Results';
-import BGroundHandler from './BGroundHandler';
-import './Main.scss';
-import { IState } from '../../interfaces';
+import React from 'react'
+import { connect } from 'react-redux'
+import Results from './Results'
+import BGroundHandler from './BGroundHandler'
+import './Main.scss'
+import { IState } from '../../interfaces'
 
 interface StateProps {
   loading: boolean
@@ -19,12 +19,12 @@ const MainSection = ({ loading, inputValue }: StateProps) => {
       {loading ? <div id="loader" /> : <Results />}
 
     </div>
-  );
+  )
 }
 
 const mapStateToProps = (state: IState): StateProps => ({
   loading: state.loading,
   inputValue: state.inputValue
-});
+})
 
-export default connect(mapStateToProps)(MainSection);
+export default connect(mapStateToProps)(MainSection)

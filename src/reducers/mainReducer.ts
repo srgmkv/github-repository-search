@@ -12,7 +12,7 @@ const initState: IState = {
   emptyDataRecieved: false
 }
 
-const mainReducer = (state: IState = initState, action: AppActions): IState => {
+const reducer = (state: IState = initState, action: AppActions): IState => {
   switch (action.type) {
 
     case A.ACTION_DATA_LOADED:
@@ -50,4 +50,4 @@ const mainReducer = (state: IState = initState, action: AppActions): IState => {
   }
 }
 
-export default mainReducer
+export default reducer

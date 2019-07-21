@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './Header.scss'
 import Image from '../../Images/github2.svg'
 
@@ -11,7 +11,7 @@ const Header = () => {
       <div className="title">{`{</>}`} Github repo finder</div>
     </div>
 
-  );
+  )
 }
 
-export default Header;
+export default Header
