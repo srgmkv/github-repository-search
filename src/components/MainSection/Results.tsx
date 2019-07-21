@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { connect } from 'react-redux'
 import Card from '../Card/Card'
 import { ItemModel, IState } from '../../interfaces'
-import BgHandler from './BGroundHandler'
 
 interface StateProps {
   items: ItemModel[]
@@ -12,6 +11,7 @@ interface StateProps {
 
 //Компонент для отображения результата запроса
 const Results = ({ error, items, emptyDataRecieved }: StateProps) => {
+  console.log('ResultsSection rendered')
   //если список репозиториев получен, то генерируем JSX c карточками репозиториев
   const cards =
     items.length > 0 &&
@@ -21,8 +21,8 @@ const Results = ({ error, items, emptyDataRecieved }: StateProps) => {
 
   return (
     <>
-      {!emptyDataRecieved ? cards : <BgHandler spec='no-result' />} {/*если данные получены, но пусты => дефолный фон и no-res сообщение */}
-      {error && <BgHandler spec='error' />} {/*если ошибка, => дефолный фон и err сообщение */}
+      {!emptyDataRecieved ? cards : Message(noRes)} {/* блок с карточками репозиториев либо сообщение о получении пустых данных */}
+      {error && Message(errMes)} {/*сообщение об ошибке */}
     </>
   )
 }
@@ -34,4 +34,14 @@ const mapStateToProps = (state: IState): StateProps => ({
 })
 
 export default connect(mapStateToProps)(Results)
+
+const Message = (str: string) => <div id="message">{str}</div>
+
+const errMes: string =
+  `Error occured.  
+Check for incorrect symbols or try later`
+
+const noRes: string =
+  `There is no result on this request.
+Try it to change.`
 
