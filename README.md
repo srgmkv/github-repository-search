@@ -1,4 +1,5 @@
-### `Поиск по проектам на github.com`
+### `Поиск по проектам на github.com`  
+  
 Были применены:  
 `React`, `TypeScript`, `React-Redux`, `Redux-Saga` 
 
