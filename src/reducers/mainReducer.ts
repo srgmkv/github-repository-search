@@ -15,8 +15,7 @@ const mainReducer = (state: IState = initState, action: AppActions): IState => {
 
     case 'DATA_REQUESTED':
       return {
-        ...state,
-        loading: true
+        ...state
       }
 
     case 'DATA_LOADED':

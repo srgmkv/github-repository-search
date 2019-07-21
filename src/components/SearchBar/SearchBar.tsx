@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { debounce } from 'ts-debounce';
 import './SearchBar.scss';
@@ -12,13 +12,15 @@ interface Props {
 //Компонент для обработки действий с инпутом
 const SearchBar = ({ changeInput, fetchRepos }: Props) => {
 
-  //ограничиваем число запросов к серверу
+  //ф-я, ограничивает число запросов к серверу
   const debouncedFetchRepos = debounce(fetchRepos, 1000);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value }: { value: string } = e.target;
-    changeInput(value); // передаем значение в редьюсер и далее в стейт
-    value.length > 2 && debouncedFetchRepos(value); //начинаем поиск после > 2 символов в запросе
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value }: { value: string } = event.target;
+    // меняем  inputValue в стейте
+    changeInput(value);
+    //отправляем запрос на сервер
+    value.length > 2 && debouncedFetchRepos(value);
   }
 
   return (

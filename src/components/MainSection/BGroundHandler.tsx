@@ -1,23 +1,19 @@
 import React, { ReactNode } from 'react'
 
-type Props = {
-  spec?: string
+type specType = {
+  spec?: 'error' | 'no-result'
 }
 
-/* Компонент для отрисовки трех вариаций фона:
-1. Дефолтный бэкграунд
-2. Он же с сообщением об ошибке
-3. Он же с сообщением о пустой выдаче */
-
-const BackgroundImageHandler = (props: Props) => {
-  switch (props.spec) {
-    case ('error'): 
+// Компонент для отрисовки вариаций бэкграунда 
+const BackgroundImageHandler = ({ spec }: specType) => {
+  switch (spec) {
+    case ('error'):
       return background(message(errorMessage));//див с фоном, внутри див с error сообщением
 
-    case ('no-result'): 
+    case ('no-result'):
       return background(message(noResMessage));//див с фоном, внутри див с no-res сообщением
 
-    default: // здесь див с фоном
+    default: // здесь дефолт див с фоном
       return background();
   }
 }
