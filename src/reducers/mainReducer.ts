@@ -1,5 +1,7 @@
-import { IState } from '../interfaces';
-import { AppActions } from '../actions';
+import { IState } from '../interfaces'
+import { AppActions} from '../actions'
+import  * as A from '../actions'
+
 
 const initState: IState = {
   items: [],
@@ -13,12 +15,7 @@ const initState: IState = {
 const mainReducer = (state: IState = initState, action: AppActions): IState => {
   switch (action.type) {
 
-    case 'DATA_REQUESTED':
-      return {
-        ...state
-      }
-
-    case 'DATA_LOADED':
+    case A.ACTION_DATA_LOADED:
       return (!action.data.length) ? {
         ...initState,
         inputValue: state.inputValue,
@@ -29,7 +26,7 @@ const mainReducer = (state: IState = initState, action: AppActions): IState => {
           inputValue: state.inputValue
         }
 
-    case 'API_ERRORED':
+    case A.ACTION_API_ERRORED:
       return {
         ...initState,
         error: true,
@@ -37,7 +34,7 @@ const mainReducer = (state: IState = initState, action: AppActions): IState => {
         inputValue: state.inputValue
       }
 
-    case 'CHANGE_INPUT':
+    case A.ACTION_INPUT_CHANGED:
       return (action.inputValue.length < 3) ? {
         ...initState,
         inputValue: action.inputValue
@@ -53,4 +50,4 @@ const mainReducer = (state: IState = initState, action: AppActions): IState => {
   }
 }
 
-export default mainReducer;
+export default mainReducer

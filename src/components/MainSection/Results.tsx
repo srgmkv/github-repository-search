@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Card from '../Card/CardComp';
+import Card from '../Card/Card';
 import { ItemModel, IState } from '../../interfaces';
 import BgHandler from './BGroundHandler'
 

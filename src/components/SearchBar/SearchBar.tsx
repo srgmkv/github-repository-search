@@ -1,35 +1,35 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { debounce } from 'ts-debounce';
-import './SearchBar.scss';
-import { changeInput, fetchRepos } from '../../actions/index';
+import React from 'react'
+import { connect } from 'react-redux'
+import './SearchBar.scss'
+import { changeInput } from '../../actions/index'
+import { IState } from '../../interfaces'
 
 interface Props {
   changeInput: typeof changeInput
-  fetchRepos: typeof fetchRepos
+  inputValue: string
 }
 
 //Компонент для обработки действий с инпутом
-const SearchBar = ({ changeInput, fetchRepos }: Props) => {
-
-  //ф-я, ограничивает число запросов к серверу
-  const debouncedFetchRepos = debounce(fetchRepos, 1000);
+const SearchBar = ({ inputValue, changeInput }: Props) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value }: { value: string } = event.target;
-    // меняем  inputValue в стейте
-    changeInput(value);
-    //отправляем запрос на сервер
-    value.length > 2 && debouncedFetchRepos(value);
+    const { value }: { value: string } = event.target
+    changeInput(value) //отправляем экшн и меняем стейт
+   
   }
 
   return (
     <div className='input'>
       <input type="text" id="text-input"
         onChange={handleChange}
+        value={inputValue} 
       />
     </div>
   );
 }
 
-export default connect(null, { changeInput, fetchRepos })(SearchBar);
+const mapStateToProps = (state: IState): { inputValue: string } => ({
+  inputValue: state.inputValue
+})
+
+export default connect(mapStateToProps, { changeInput })(SearchBar)

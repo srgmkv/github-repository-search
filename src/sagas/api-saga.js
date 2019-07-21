@@ -1,29 +1,32 @@
-import { takeEvery, call, put } from "redux-saga/effects";
-import axios from 'axios';
+import { takeLatest, call, put, delay } from "redux-saga/effects"
+import axios from 'axios'
 
-export default function* watcherSaga() {
-  yield takeEvery('DATA_REQUESTED', workerSaga);
+export default function* watchInput() {
+  yield takeLatest('INPUT_CHANGED', handleInput);
 }
-function* workerSaga(action) {
+function* handleInput(action) {
+  const { inputValue } = action
+
   try {
-    const response = yield call(fetchRepos, action);
-    const mappedItems = fetchedDataReducer(response);
-    yield put({ type: 'DATA_LOADED', data: mappedItems });
+    if (inputValue.length > 2) {
+      yield delay(500)
+      const dataFromApi = yield call(fetchRepos, inputValue)
+
+      const mappedItems = fetchedDataReducer(dataFromApi)
+      yield put({ type: 'DATA_LOADED', data: mappedItems })
+    }
   } catch (error) {
-
-    console.log('error', error)
-
-    yield put({ type: 'API_ERRORED', errorData: error });
+    yield put({ type: 'API_ERRORED', errorData: error })
   }
 }
 
-function fetchRepos(action) {
-  const query = action.valueForUrl
-  return axios.get(`https://api.github.com/search/repositories?q=${query}`)
- }
+function fetchRepos(query) {
+  const apiUrlForRepos = 'https://api.github.com/search/repositories?q='
+  return axios.get(`${apiUrlForRepos}${query}`)
+}
 
-function fetchedDataReducer(response) {
-  return response.data.items
+function fetchedDataReducer(data) {
+  return data.data.items
     .map((item) => ({
       id: item.id,
       url: item.html_url,
