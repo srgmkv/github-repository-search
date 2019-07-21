@@ -6,4 +6,5 @@
 *  `npm install`
 *  `npm start`
 
-Запустите приложение в браузере в режиме разработки по адресу [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Запустите приложение в браузере в режиме разработки  
+по адресу [http://localhost:3000](http://localhost:3000)
