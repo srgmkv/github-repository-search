@@ -1,10 +1,9 @@
 ### Приложение Поиск по проектам на github.com
 
-#### Быстрый старт
+#### Для быстрого старта:
 
 * Скопируйте репозиторий
 *  `npm install`
 *  `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Запустите приложение в браузере в режиме разработки по адресу [http://localhost:3000](http://localhost:3000) to view it in the browser.
