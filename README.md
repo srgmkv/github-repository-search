@@ -8,8 +8,8 @@
 * Скопируйте репозиторий
 *  `npm install`
 *  `npm start`
-* Запустите приложение в браузере по адресу: [http://localhost:3000](http://localhost:3000)  
+* Откройте браузер по адресу: **[http://localhost:3000]**(http://localhost:3000)  
   
   
 #### Для запуска приложения в режиме ДЕМО:  
-[http://localhost:3000](--> ДЕМО <--)
+**[--> ДЕМО <--]**(https://srgmkv.github.io/github-repository-search/)
