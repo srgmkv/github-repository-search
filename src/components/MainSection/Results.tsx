@@ -11,8 +11,7 @@ interface StateProps {
 
 //Компонент для отображения результата запроса
 const Results = ({ error, items, emptyDataRecieved }: StateProps) => {
-  console.log('ResultsSection rendered')
-  //если список репозиториев получен, то генерируем JSX c карточками репозиториев
+ //если список репозиториев получен, то генерируем JSX c карточками репозиториев
   const cards =
     items.length > 0 &&
     <div id="cards-container">
