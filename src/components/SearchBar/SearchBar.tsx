@@ -19,8 +19,9 @@ const SearchBar = ({ inputValue, changeInput }: Props) => {
   }
 
   return (
-    <div className='input'>
+    <div className="input">
       <input type="text" id="text-input"
+      placeholder="Type here to search (min 3 symbolss)"
         onChange={handleChange}
         value={inputValue} 
       />
